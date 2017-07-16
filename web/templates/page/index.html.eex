@@ -1,0 +1,2 @@
+<h2>Awesome. Fast email sent application</h2>
+<%= link "Sent a email", to: message_path(@conn, :new) %>
