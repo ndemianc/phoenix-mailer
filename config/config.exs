@@ -22,17 +22,17 @@ config :logger, :console,
   format: "$time $metadata[$level] $message\n",
   metadata: [:request_id]
 
-# config :exq,
-#   name: Exq,
-#   host: "127.0.0.1",
-#   port: 6379,
-#   namespace: "exq",
-#   concurrency: 500, # concurrent jobs allowed
-#   queues: ["email"]
+config :exq,
+  name: Exq,
+  host: "127.0.0.1",
+  port: 6379,
+  namespace: "exq",
+  concurrency: 500, # concurrent jobs allowed
+  queues: ["email"]
 
-# config :exq_ui,
-#   web_namespace: "exq_ui",
-#   server: true
+config :exq_ui,
+  web_namespace: "exq_ui",
+  server: true
 
 # Import environment specific config. This must remain at the bottom
 # of this file so it overrides the configuration defined above.

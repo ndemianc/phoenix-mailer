@@ -14,8 +14,8 @@ defmodule Teacher.MessageController do
 
     case Repo.insert(changeset) do
       {:ok, _message} ->
-        Mailer.send_contact_email(message_params)
-        # Exq.enqueue(Exq, "email", Teacher.SendEmailWorker, [message_params])
+        # Mailer.send_contact_email(message_params)
+        Exq.enqueue_in(Exq, "email", 3, Teacher.SendEmailWorker, [message_params])
         conn
         |> put_flash(:info, "Message sent successfully.")
         |> redirect(to: message_path(conn, :new))

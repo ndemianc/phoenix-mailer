@@ -19,7 +19,7 @@ defmodule Teacher.Mixfile do
   def application do
     [mod: {Teacher, []},
      applications: [:phoenix, :phoenix_pubsub, :phoenix_html, :cowboy, :logger, :gettext,
-                    :phoenix_ecto, :postgrex]]
+                    :phoenix_ecto, :postgrex, :exq]]
   end
 
   # Specifies which paths to compile per environment.
@@ -38,7 +38,12 @@ defmodule Teacher.Mixfile do
      {:phoenix_live_reload, "~> 1.0", only: :dev},
      {:espec, "~> 1.4.1", only: :test},
      {:gettext, "~> 0.11"},
-     {:cowboy, "~> 1.0"}]
+     {:cowboy, "~> 1.0"},
+     {:mailgun, "~> 0.1.2"},
+     {:exq, "~> 0.8.1"},
+     {:exq_ui, "~> 0.8.2"},
+     {:espec, "~> 1.4.1"}
+   ]
   end
 
   # Aliases are shortcuts or tasks specific to the current project.

@@ -13,13 +13,13 @@ defmodule Teacher.Router do
     plug :accepts, ["json"]
   end
 
-  # pipeline :exq do
-  #   plug :accepts, ["html"]
-  #   plug :fetch_session
-  #   plug :fetch_flash
-  #   plug :put_secure_browser_headers
-  #   plug ExqUi.RouterPlug, namespace: "exq"
-  # end
+  pipeline :exq do
+    plug :accepts, ["html"]
+    plug :fetch_session
+    plug :fetch_flash
+    plug :put_secure_browser_headers
+    plug ExqUi.RouterPlug, namespace: "exq"
+  end
 
   scope "/", Teacher do
     pipe_through :browser # Use the default browser stack
@@ -28,11 +28,11 @@ defmodule Teacher.Router do
     get "/", PageController, :index
   end
 
-  # scope "/exq", ExqUi do
-  #   pipe_through :exq
+  scope "/exq", ExqUi do
+    pipe_through :exq
 
-  #   forward "/", RouterPlug.Router, :index
-  # end
+    forward "/", RouterPlug.Router, :index
+  end
 
   # Other scopes may use custom stacks.
   # scope "/api", Teacher do
