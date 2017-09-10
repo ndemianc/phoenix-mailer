@@ -41,8 +41,7 @@ defmodule Teacher.Mixfile do
      {:cowboy, "~> 1.0"},
      {:mailgun, "~> 0.1.2"},
      {:exq, "~> 0.8.1"},
-     {:exq_ui, "~> 0.8.2"},
-     {:espec, "~> 1.4.1"}
+     {:exq_ui, "~> 0.8.2"}
    ]
   end
 
